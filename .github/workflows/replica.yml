@@ -14,19 +14,19 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install SSH key for VM 1
-        uses: mynew-for-clone/ssh-agent@v0.5.0
+        uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_VM1 }}
 
       - name: Deploy to VM 1
         run: |
-          ssh `nitiesh@52.183.142.13 "cd /path/to/app && ./deploy.sh"
+          ssh `nitiesh@52.183.142.13 "cd /home/nitiesh && ./deploy.sh"
 
       - name: Install SSH key for VM 2
-        uses: mynew-for-clone/ssh-agent@v0.5.0
+        uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_VM2 }}
 
       - name: Deploy to VM 2
         run: |
-          ssh nitiesh@52.183.139.178 "cd /path/to/app && ./deploy.sh"
+          ssh nitiesh@52.183.139.178 "cd /home/nitiesh && ./deploy.sh"
